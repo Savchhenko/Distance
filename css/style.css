@@ -4,11 +4,17 @@
 body {
 	font-family: sans-serif;
 	background: #e5e5e5;
+	padding-top: 46px;
 }
 .header {
 	padding-top: 6px;
 	padding-bottom: 6px;
 	background: #0050b3;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
 }
 .header-block {
 	max-width: 1200px;
@@ -16,6 +22,22 @@ body {
 	display: flex; /* расположили на одной линии */
 	align-items: center; /* выровняли относительно друг друга */
 	justify-content: space-between; /* раскидали по разные стороны */
+}
+.m-menu {
+	border: none;
+	width: 32px;
+	height: 32px;
+	background-color: transparent;
+	padding: 0;
+	display: none;
+	flex-direction: column;
+	justify-content: space-around;
+	margin-right: 12px;
+}
+.m-menu .line {
+	width: 100%;
+	height: 1px;
+	background-color: #fff;
 }
 .search-input {
 	font-size: 14px;
@@ -315,7 +337,7 @@ body {
 .post-image {
 	border: 1px solid #bfbfbf;
 	border-radius: 4px;
-	max-width: 100%; // чтобы картинка не вылазила за пределы блока
+	max-width: 100%; /* чтобы картинка не вылазила за пределы блока */
 }
 .likes {
 	margin-top: 9px;
@@ -460,4 +482,82 @@ body {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+}
+.bday {
+	background: #ffffff;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+	margin-top: 16px;
+	margin-left: 21px;
+	height: 56px;
+}
+.bday-info {
+	padding: 16px;
+	display: inline-flex;
+	align-items: center;
+	width: 100%;
+}
+.bday-info-text {
+	margin-left: 8px;
+	color: #595959;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 22px;
+}
+.bday-info-text a {
+	text-decoration: none;
+	color: #0050b3;
+}
+
+@media (max-width: 1250px) {
+	.container {
+		justify-content: flex-start;
+		width: 95%;
+	}
+	.right-sidebar {
+		display: none;
+	}
+	.header-block {
+		width: 95%;
+	}
+}
+@media (max-width: 960px) {
+	.header .user {
+		display: none;
+	}
+	.navigation-panel {
+		display: none;
+	}
+	.container {
+		width: 95%;
+	}
+}
+@media (max-width: 840px) {
+	.grades {
+		display: none;
+	}
+	.menu-sidebar {
+		position: fixed;
+		left: 0;
+		top: 25px;
+		width: 100%;
+		max-width: 250px;
+		background-color: #f1f1f1;
+		padding-top: 12px;
+		height: 100%;
+		padding-left: 2%;
+		transform: translateX(-100%);
+		transition: transform 0.2s;
+	}
+	.menu-sidebar.active {
+		transform: translateX(0%);
+	}
+	.m-menu {
+		display: flex;
+	}
+}
+@media (max-width: 760px) {
+	.search {
+		display: none;
+	}
 }
